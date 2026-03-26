@@ -1,0 +1,21 @@
+apiVersion: helm.cattle.io/v1
+kind: HelmChartConfig
+metadata:
+  name: rke2-coredns
+  namespace: kube-system
+spec:
+  valuesContent: |-
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+    autoscaler:
+      resources:
+        requests:
+          cpu: 20m
+          memory: 32Mi
+    nodelocal:
+      resources:
+        requests:
+          cpu: 50m
+          memory: 64Mi
