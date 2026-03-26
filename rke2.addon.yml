@@ -1,0 +1,44 @@
+installation:
+  backend: VXLAN
+  calicoNetwork:
+    bgp: Disabled
+  controlPlaneTolerations:
+    - effect: NoSchedule
+      key: node-role.kubernetes.io/control-plane
+      operator: Exists
+    - effect: NoExecute
+      key: node-role.kubernetes.io/etcd
+      operator: Exists
+  enabled: true
+  flexVolumePath: /var/lib/kubelet/volumeplugins/
+  imagePath: rancher
+  imagePrefix: mirrored-calico-
+  imagePullSecrets: []
+  kubeletVolumePluginPath: None
+  kubernetesProvider: ''
+  natOutgoing: Enabled
+  registry: docker.io
+  componentResources:
+    - componentName: Node
+      resourceRequirements:
+        limits:
+          cpu: 500m
+          memory: 512Mi
+        requests:
+          cpu: 250m
+          memory: 256Mi
+    - componentName: KubeControllers
+      resourceRequirements:
+        requests:
+          cpu: 100m
+          memory: 128Mi
+  typhaDeployment:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: calico-typha
+              resources:
+                requests:
+                  cpu: 100m
+                  memory: 128Mi
