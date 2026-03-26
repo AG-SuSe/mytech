@@ -5,6 +5,7 @@ metadata:
   namespace: kube-system
 spec:
   valuesContent: |-
+   controller:
     resources:
       requests:
         cpu: 10m
