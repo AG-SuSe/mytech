@@ -1,0 +1,12 @@
+RKE2 
+
+$ systemctl stop rke2-server.service
+$ vi  /etc/rancher/rke2/config.yaml
+     ingress-controller: traefik
+$ systemctl start rke2-server.service
+
+Rancher
+
+Update the Ingress class to Traefik
+$ kubectl edit ingress -n cattle-system 
+   Under Spec add the line : ingressClassName: traefik
