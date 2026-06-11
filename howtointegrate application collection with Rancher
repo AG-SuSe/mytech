@@ -1,1 +1,10 @@
 
+Login to app collector and collect the Below details ( URL : https://apps.rancher.io/ )
+
+Go to Settings ( Right Side Top , Click on Profile )
+You can see ACCESS TOKEN and Create New
+Collect the access token and username
+
+Login to Rancher UI 
+Go to Apps section
+Select Repositries > Create > Select SUSE App Collection
